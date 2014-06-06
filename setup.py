@@ -7,6 +7,8 @@ setup(
     version = '1.0',
     license = 'BSD',
     author = 'Espen Angell Kristiansen',
+    author_email = 'post@espenak.net',
+    url = 'https://github.com/appressoas/vitalstyles',
     packages=find_packages(exclude=['manage']),
     install_requires = [
         'setuptools',
