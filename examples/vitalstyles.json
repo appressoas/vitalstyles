@@ -1,0 +1,7 @@
+{
+    "preview_cssfile": "styles.css",
+    "title": "My style guide",
+    "inpaths": [
+        "less"
+    ]
+}

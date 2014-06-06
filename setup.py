@@ -1,0 +1,29 @@
+from setuptools import setup, find_packages
+
+
+setup(
+    name = 'vitalstyles',
+    description = 'Generate CSS/SASS/LESS documentation.',
+    version = '1.0',
+    license = 'BSD',
+    author = 'Espen Angell Kristiansen',
+    packages=find_packages(exclude=['manage']),
+    install_requires = [
+        'setuptools',
+        'Markdown',
+        'Jinja2',
+        'pygments',
+    ],
+    classifiers = [
+        'Intended Audience :: Developers',
+        'License :: OSI Approved',
+        'Programming Language :: Python'
+    ],
+    include_package_data=True,
+    zip_safe=True,
+    entry_points = {
+        'console_scripts': [
+          'vitalstyles-cli = vitalstyles.cli:cli',
+        ],
+    },
+)

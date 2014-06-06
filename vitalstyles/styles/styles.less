@@ -1,0 +1,185 @@
+@include "reset.less";
+
+@font-family-sans-serif: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", HelveticaNeue, "Helvetica-Neue", Helvetica, Arial,     sans-serif;
+@font-size-base: 14px;
+@body-side-padding: 30px;
+
+
+.vitalstyles-reset {
+    font-family: @font-family-sans-serif;
+    font-size: @font-size-base;
+    background-color: #fff;
+    padding-left: @body-side-padding;
+    padding-right: @body-side-padding;
+
+    &.vitalstyles-header {
+        background-color: #fafafa;
+        padding-top: 70px;
+        padding-bottom: 70px;
+        h1 {
+            font-size: 50px;
+            color: #333;
+            margin: 0;
+        }
+        p {
+            font-size: 16px;
+            font-weight: bold;
+            color: #666;
+        }
+    }
+
+    &.vitalstyles-toc {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        h2 {
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            color: #444;
+        }
+        ul {
+            li {
+                margin-top: 10px;
+                a {
+                    color: #666;
+                    text-decoration: none;
+                    border-bottom: 1px solid #eee;
+                    transition-property: border;
+                    transition-duration: 0.3s;
+                    &:hover {
+                        color: #333;
+                        text-decoration: none;
+                        border-bottom: 3px solid #ccc;
+                    }
+                }
+            }
+        }
+    }
+
+    // &.vitalstyles-about {
+    //     background-color: #efefef;
+    //     padding-top: 20px;
+    //     padding-bottom: 20px;
+    // }
+    
+    &.vitalstyles-filename-block {
+        background-color: #333;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        h1 {
+            margin: 0;
+            padding: 0;
+            color: #666666;
+        }
+    }
+
+    &.vitalstyles-markdown {
+        background-color: #2a2a2a;
+        color: #999;
+        h1 {
+            margin: 0;
+            padding-top: 40px;
+            padding-bottom: 16px;
+            // border-bottom: 1px solid #000;
+            // margin-left: -@body-side-padding;
+            // margin-right: -@body-side-padding;
+            // padding-left: @body-side-padding;
+            // padding-right: @body-side-padding;
+        }
+
+        p {
+            margin: 0;
+            padding: 14px 0 14px 0;
+        }
+
+        p + p {
+            padding-top: 0;
+        }
+
+        h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 20px 0 12px 0;
+            & + p {
+                padding-top: 0;
+            }
+        }
+
+        pre {
+            margin: 0;
+        }
+
+    }
+}
+
+.vitalstyles-example {
+    background-color: #2a2a2a;
+    .vitalstyles-example-previewblock {
+        background-color: #fff;
+    }
+    .vitalstyles-example-codeblock {
+        background-color: #2a2a2a;
+        padding-left: @body-side-padding;
+        padding-right: @body-side-padding;
+        padding-bottom: 10px;
+        pre {
+            margin: 0;
+            padding: 10px 15px;
+        }
+    }
+
+    .vitalstyles-example-previewblock-heading,
+    .vitalstyles-example-codeblock-heading {
+        background-color: #2a2a2a;
+        h5 {
+            font-size: 14px;
+            color: #888;
+            font-weight: bold;
+            padding: 15px 0 4px 0;
+            margin: 0;
+            text-transform: uppercase;
+        }
+    }
+
+
+    &.vitalstyles-example-default {
+        .vitalstyles-example-previewblock {
+            margin-left: @body-side-padding;
+            margin-right: @body-side-padding;
+            padding: 10px 15px;
+        }
+    }
+    &.vitalstyles-example-fullwidth {
+        .vitalstyles-example-previewblock {
+        }
+    }
+
+    &.vitalstyles-example-isolated {
+        .vitalstyles-example-previewblock {
+            iframe {
+                width: 100%;
+                border-width: 0 0 1px 0;
+                border-color: #eee;
+                border-style: solid;
+                margin: 0;
+                height: 400px;
+            }
+            &>.vitalstyles-example-isolated-openwrapper {
+                padding-bottom: 20px;
+                a {
+                    color: #eee;
+                    background-color: #444;
+                    border: 1px solid #000;
+                    border-radius: 3px;
+                    text-decoration: none;
+                    padding: 8px 12px;
+                    &:hover {
+                        background-color: #000;
+                        text-decoration: none;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+}

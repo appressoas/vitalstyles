@@ -1,0 +1,92 @@
+/**
+# The main style file
+All our LESS modules are imported into ``styles.less``.
+*/
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+/**
+# Links
+
+
+## Normal links
+$$$
+<a href="#">This is a normal link</a>
+$$$
+
+
+## a.blocklink
+
+$$$
+<a href="#" class="blocklink">This is a normal link</a>
+$$$
+*/
+a {
+  color: #428bca;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+a:hover {
+  color: #245682;
+}
+a.blocklink {
+  display: block;
+  border: 1px solid #eee;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+}
+/**
+# Buttons 
+Our button styles.
+*/
+/**
+## Fancy button
+
+A fancy button.
+
+Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor. Sed posuere consectetur est at lobortis.
+
+$$$
+<a href="#" class="fancy_button">
+    This is a test:)
+</a>
+$$$
+
+$$$ fullwidth
+<a href="#" class="fancy_button">
+    This is a test:)
+
+</a>
+$$$
+
+$$$ isolated
+<a href="#" class="fancy_button">
+    This is a test:)
+</a>
+$$$
+
+
+Hello world.
+```python
+print "Hello"
+```
+*/
+a.fancy_button {
+  color: #444;
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 3px;
+  border: 1px solid #888;
+  background-color: #fff;
+  transition-property: color, border-color;
+  transition-duration: 0.3s;
+  text-decoration: none;
+}
+a.fancy_button:hover {
+  color: #222;
+  border-color: #666;
+  text-decoration: none;
+}
