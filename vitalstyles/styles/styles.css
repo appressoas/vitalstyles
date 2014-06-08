@@ -310,14 +310,14 @@
 }
 .vitalstyles-example.vitalstyles-example-isolated .vitalstyles-example-previewblock iframe {
   width: 100%;
-  border-width: 0 0 1px 0;
-  border-color: #eee;
-  border-style: solid;
+  border: none;
   margin: 0;
   height: 400px;
 }
 .vitalstyles-example.vitalstyles-example-isolated .vitalstyles-example-previewblock > .vitalstyles-example-isolated-openwrapper {
-  padding-bottom: 20px;
+  background-color: #2a2a2a;
+  padding-top: 15px;
+  padding-bottom: 10px;
 }
 .vitalstyles-example.vitalstyles-example-isolated .vitalstyles-example-previewblock > .vitalstyles-example-isolated-openwrapper a {
   color: #eee;
