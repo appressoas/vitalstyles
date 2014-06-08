@@ -89,13 +89,12 @@ The Markdown parser is [python-markdown](https://pythonhosted.org/Markdown/), wi
 ### Fenced code blocks
 Makes it possible to use github markdown styled code blocks like:
 
-```
-\`\`\` javascript
-function add(a, b) {
-    return a + b;
-}
-\`\`\`
-```
+    ``` javascript
+    function add(a, b) {
+        return a + b;
+    }
+    ```
+
 
 ### Sane lists
 Renders lists in a saner manner than the original Markdown.
