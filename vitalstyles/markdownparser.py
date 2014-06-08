@@ -162,6 +162,7 @@ def to_html(input_markdown, settingsobject):
             'smart_strong', # Do not let hello_world create an <em>,
             'def_list', # Support definition lists
             'tables', # Support tables
+            'smarty',
             StyleExampleExtension(configs={'settings': settingsobject}),
         ],
         extension_configs={

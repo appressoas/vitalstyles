@@ -95,10 +95,6 @@ Makes it possible to use github markdown styled code blocks like:
     }
     ```
 
-
-### Sane lists
-Renders lists in a saner manner than the original Markdown.
-
 ### Smart strong and smart emphasis
 Prevents markdown from emphasizing words when you use ``_`` and ``__`` in the middle of a word.
 
@@ -123,3 +119,11 @@ First Header  | Second Header
 Content Cell  | Content Cell
 Content Cell  | Content Cell
 ```
+
+
+### SmartyPants
+Converts ASCII dashes, quotes and ellipses to their HTML entity equivalents
+
+
+### Sane lists
+Renders lists in a saner manner than the original Markdown.
