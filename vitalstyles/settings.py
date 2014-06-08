@@ -26,10 +26,7 @@ class Settings(object):
         'template_dir': None,
 
         # The title of the guide
-        'title': 'Vitalstyles style guide',
-
-        # The subdirectory of ``outdir`` where we want to put isolated previews.
-        'previewsdir': 'previews',
+        'title': 'Vitalstyles style guide'
     }
 
     def __init__(self, filename=None):

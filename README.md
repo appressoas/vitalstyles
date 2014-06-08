@@ -65,10 +65,7 @@ You can configure vitalstyles through a ``vitalstyles.json`` file. This is the d
     "template_dir": null,
 
     // The title of the guide
-    "title": "Vitalstyles style guide",
-
-    // The subdirectory of ``outdir`` where we want to put isolated previews.
-    "previewsdir": "previews",
+    "title": "Vitalstyles style guide"
 }
 ```
 
@@ -78,7 +75,13 @@ If you want to get previews, you have to configure ``preview_cssfile`` in a ``vi
 
 
 ## Complete example
-See the ``examples/`` directory in the source repo.
+See the ``examples/`` directory in the source repo. To build the example, install Vitalstyles and GruntJS and run the following::
+
+    $ cd examples/
+    $ npm install
+    $ grunt
+
+Then open ``vitalstyles_styleguide/index.html``.
 
 
 ## Markdown dialect

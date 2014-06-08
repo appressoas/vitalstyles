@@ -31,6 +31,7 @@
         </div>
         {% for file in files %}
             <div class="vitalstyles-reset vitalstyles-filename-block">
+                <div class="vitalstyles-filename-block-spacing"></div>
                 <h1 id="vitalstyles-file-{{ loop.index0 }}">{{ file.relfilepath }}</h1>
             </div>
             {% for comment in file.comments %}

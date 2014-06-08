@@ -1,3 +1,4 @@
+import re
 import jinja2
 import codecs
 import os
@@ -66,9 +67,9 @@ class Guide(object):
 
         self.template = environment.get_template('index.html')
         rendered = self.template.render(files=self._collect_comments())
+        rendered = re.sub(r'<div class="vitalstyles-reset vitalstyles-markdown">\s*</div>', '', rendered)
 
-        outhtml = os.path.join(outdir, 'index.html')
-        with open(outhtml, 'wb') as f:
+        with open(os.path.join(outdir, 'index.html'), 'wb') as f:
             f.write(rendered)
 
         outcss = os.path.join(outdir, 'styles.css')

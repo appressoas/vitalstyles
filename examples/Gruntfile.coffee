@@ -30,5 +30,6 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-contrib-less')
   grunt.loadNpmTasks('grunt-exec')
   grunt.registerTask('default', [
-    'less'
+    'less',
+    'exec:vitalstyles'
   ])

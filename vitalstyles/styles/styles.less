@@ -1,16 +1,32 @@
-@include "reset.less";
+@import "reset.less";
 
 @font-family-sans-serif: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", HelveticaNeue, "Helvetica-Neue", Helvetica, Arial,     sans-serif;
 @font-size-base: 14px;
 @body-side-padding: 30px;
+@default-bgcolor: #2a2a2a;
 
 
 .vitalstyles-reset {
     font-family: @font-family-sans-serif;
     font-size: @font-size-base;
-    background-color: #fff;
     padding-left: @body-side-padding;
     padding-right: @body-side-padding;
+
+    h1, h2 {
+        font-weight: normal;
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+
+    h2 {
+        font-size: 27px;
+    }
+
+    ul, ol {
+        margin-left: 30px;
+    }
 
     &.vitalstyles-header {
         background-color: #fafafa;
@@ -63,18 +79,25 @@
     // }
     
     &.vitalstyles-filename-block {
-        background-color: #333;
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding: 0;
+            
+        .vitalstyles-filename-block-spacing {
+            height: 60px;
+            background-color: @default-bgcolor;
+        }
         h1 {
             margin: 0;
-            padding: 0;
+            padding: 0 @body-side-padding;
             color: #666666;
+            font-size: 20px;
+            background-color: #333;
+            padding-top: 40px;
+            padding-bottom: 40px;
         }
     }
 
     &.vitalstyles-markdown {
-        background-color: #2a2a2a;
+        background-color: @default-bgcolor;
         color: #999;
         h1 {
             margin: 0;
@@ -108,16 +131,26 @@
             margin: 0;
         }
 
+        code {
+            border-width: 0;
+            background-color: #444;
+            color: #aaa;
+            padding: 2px 4px;
+            font-size: 90%;
+            white-space: nowrap;
+            border-radius: 4px;
+            font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+        }
     }
 }
 
 .vitalstyles-example {
-    background-color: #2a2a2a;
+    background-color: @default-bgcolor;
     .vitalstyles-example-previewblock {
         background-color: #fff;
     }
     .vitalstyles-example-codeblock {
-        background-color: #2a2a2a;
+        background-color: @default-bgcolor;
         padding-left: @body-side-padding;
         padding-right: @body-side-padding;
         padding-bottom: 10px;
@@ -129,7 +162,7 @@
 
     .vitalstyles-example-previewblock-heading,
     .vitalstyles-example-codeblock-heading {
-        background-color: #2a2a2a;
+        background-color: @default-bgcolor;
         h5 {
             font-size: 14px;
             color: #888;
@@ -181,5 +214,4 @@
             }
         }
     }
-
 }
