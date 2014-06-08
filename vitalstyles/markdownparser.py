@@ -46,7 +46,7 @@ class StyleExampleBlockPreprocessor(markdown.preprocessors.Preprocessor):
     def get_next_isolated_preview_filename(cls):
         counter = cls.isolated_file_counter
         cls.isolated_file_counter += 1
-        return '{}.preview.html'.format(counter)
+        return 'preview.{}.html'.format(counter)
 
     def __init__(self, md, settingsobject):
         super(StyleExampleBlockPreprocessor, self).__init__(md)
@@ -99,13 +99,8 @@ class StyleExampleBlockPreprocessor(markdown.preprocessors.Preprocessor):
 
     def _save_htmlfile(self, html, examplestyle):
         if examplestyle == 'isolated':
-            previewfilesdir = os.path.join(self.settingsobject['outdir'],
-                self.settingsobject['previewsdir'])
-            if not os.path.exists(previewfilesdir):
-                os.mkdir(previewfilesdir)
-
             unique_filename = self.__class__.get_next_isolated_preview_filename()
-            with open(os.path.join(previewfilesdir, unique_filename), 'wb') as f:
+            with open(os.path.join(self.settingsobject['outdir'], unique_filename), 'wb') as f:
                 preview = self._render_jinja2_template('preview-standalone.html',
                     html=html)
                 f.write(preview)
@@ -116,7 +111,6 @@ class StyleExampleBlockPreprocessor(markdown.preprocessors.Preprocessor):
     def _render_examplehtml(self, html, examplestyle, previewfilename):
         codeblock = self._render_hilighted_codeblock(html)
         previewblock = self._render_previewblock(html, examplestyle, previewfilename)
-        # return '<div>HEI</div>'
         return self._render_jinja2_template('example.html',
             examplestyle=examplestyle,
             codeblock=codeblock,
