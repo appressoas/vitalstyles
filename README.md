@@ -82,4 +82,45 @@ See the ``examples/`` directory in the source repo.
 
 
 ## Markdown dialect
-The markdown dialect is more or less the same as the GitHub format, with one additional tag to markup examples.
+The Markdown dialect is more or less the same as the GitHub format, with one additional tag to markup examples.
+
+The Markdown parser is [python-markdown](https://pythonhosted.org/Markdown/), with the following [extensions](https://pythonhosted.org/Markdown/extensions/index.html):
+
+### Fenced code blocks
+Makes it possible to use github markdown styled code blocks like:
+
+```
+\`\`\` javascript
+function add(a, b) {
+    return a + b;
+}
+\`\`\`
+```
+
+### Sane lists
+Renders lists in a saner manner than the original Markdown.
+
+### Smart strong and smart emphasis
+Prevents markdown from emphasizing words when you use ``_`` and ``__`` in the middle of a word.
+
+### Definition Lists
+Makes it possible to define definition lists with the following markup:
+
+```
+Option one
+:   This is not a very good option. You should consider
+    using _option two_.
+
+Option two
+:   This is a really good option.
+```
+
+### Tables
+Makes it possible to create tables with the following markup:
+
+```
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+```
