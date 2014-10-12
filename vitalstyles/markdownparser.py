@@ -6,20 +6,18 @@ from markdown.extensions import codehilite
 
 
 class StyleExampleExtension(Extension):
-    def __init__(self, configs):
-        # define default configs
-        self.config = {
-            'settings': [None, "vitalstyles.settings.Settings object."],
-        }
+    config = {
+        'settings': [None, "vitalstyles.settings.Settings object."],
+    }
 
-        # Set config
-        self.setConfig('settings', configs['settings'])
-
+    def __init__(self, settingsobject, *args, **kwargs):
+        self.settingsobject = settingsobject
+        super(StyleExampleExtension, self).__init__(*args, **kwargs)
 
     def extendMarkdown(self, md, md_globals):
         md.registerExtension(self)
         md.preprocessors.add('vitalstyles_example_block',
-            StyleExampleBlockPreprocessor(md, settingsobject=self.config['settings'][0]),
+            StyleExampleBlockPreprocessor(md, settingsobject=self.settingsobject),
             ">normalize_whitespace")
 
 
@@ -157,7 +155,7 @@ def to_html(input_markdown, settingsobject):
             'def_list', # Support definition lists
             'tables', # Support tables
             'smarty',
-            StyleExampleExtension(configs={'settings': settingsobject}),
+            StyleExampleExtension(settingsobject=settingsobject),
         ],
         extension_configs={
             'codehilite': codehilite_conf
