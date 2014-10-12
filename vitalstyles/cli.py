@@ -19,10 +19,17 @@ def cli(settingsobject=None):
         dest='loglevel', default='INFO',
         choices=['DEBUG', 'INFO', 'ERROR'], help='Loglevel.')
     args = parser.parse_args()
+
+    loglevel = getattr(logging, args.loglevel)
     logging.basicConfig(
-        format='%(levelname)s: %(message)s',
-        level=getattr(logging, args.loglevel)
+        format='[%(name)s] %(levelname)s: %(message)s',
+        level=loglevel
     )
+
+    if loglevel > logging.DEBUG:
+        markdownlogger = logging.getLogger('MARKDOWN')
+        markdownlogger.setLevel(logging.WARNING)
+
     if not settingsobject:
         settingsobject = settings.Settings(args.settingsfile)
     logging.debug('Creating vitalstyles styleguide with the following settings:\n%s',
