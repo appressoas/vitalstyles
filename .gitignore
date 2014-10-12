@@ -17,3 +17,7 @@ Session.vim
 __pycache__/
 node_modules/
 vitalstyles_styleguide/
+
+# Ignore user-specific pycharm settings
+.idea/workspace.xml
+.idea/tasks.xml
