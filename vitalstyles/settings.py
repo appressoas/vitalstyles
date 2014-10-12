@@ -32,20 +32,32 @@ class Settings(object):
     def __init__(self, filename=None):
         self.settings = self.defaults.copy()
         self.basedir = os.getcwd()
-        if filename and os.path.exists(filename):
-            log.debug('Loading settings from %s', filename)
-            self.filename = filename
-            self.basedir = os.path.dirname(filename)
-            with open(self.filename, 'rb') as f:
-                self.rawdata = f.read()
-            usersettings = json.loads(self.rawdata)
-            for key, value in usersettings.iteritems():
-                if not key in self.defaults:
-                    raise KeyError('Invalid settings key: {}.'.format(key))
-                else:
-                    self.settings[key] = value
+        if filename:
+            if os.path.exists(filename):
+                self.setup_with_settingsfile(filename)
+            else:
+                self.handle_settingsfile_missing()
         else:
-            log.info('No settings file found. Using default settings:\n%s', pprint.pformat(self.settings))
+            self.setup_without_settingsfile()
+
+    def handle_settingsfile_missing(self):
+        log.info('No settings file found. Using default settings:\n%s', pprint.pformat(self.settings))
+
+    def setup_with_settingsfile(self, filename):
+        log.debug('Loading settings from %s', filename)
+        self.filename = filename
+        self.basedir = os.path.dirname(filename)
+        with open(self.filename, 'rb') as f:
+            self.rawdata = f.read()
+        usersettings = json.loads(self.rawdata)
+        for key, value in usersettings.iteritems():
+            if not key in self.defaults:
+                raise KeyError('Invalid settings key: {}.'.format(key))
+            else:
+                self.settings[key] = value
+
+    def setup_without_settingsfile(self):
+        log.info('No settings file specified. Using default settings:\n%s', pprint.pformat(self.settings))
 
     def __getitem__(self, key):
         return self.settings[key]
