@@ -22,7 +22,7 @@ setup(
         'Programming Language :: Python'
     ],
     include_package_data=True,
-    zip_safe=True,
+    zip_safe=False,
     entry_points = {
         'console_scripts': [
           'vitalstyles-cli = vitalstyles.cli:cli',

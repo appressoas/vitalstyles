@@ -33,7 +33,12 @@ class Settings(object):
         # The directory itself is not copied, so if you specify two directories
         # containing the same file, the file from the last directory in the
         # list will overwrite the first.
-        'asset_directories': []
+        'asset_directories': [],
+
+        # Include stock assets? This will add a directory named
+        # stock to your assets/ directory, and fill it with assets
+        # that you can use in your styleguide.
+        'include_stock_assets': False
     }
 
     def __init__(self, filename=None):
@@ -78,7 +83,12 @@ class Settings(object):
     def get_assets_outdir_path(self):
         return os.path.join(self.get_outdir_path(), 'assets')
 
+    def get_stock_assets_directory(self):
+        return os.path.join(os.path.dirname(__file__), 'stock_assets')
+
     def iter_asset_directories(self):
+        if self.settings['include_stock_assets']:
+            yield self.get_stock_assets_directory()
         for path in self.settings['asset_directories']:
             yield os.path.abspath(os.path.join(self.basedir, path))
 

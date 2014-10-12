@@ -14,7 +14,8 @@ class CustomSettings(Settings):
             ],
             "asset_directories": [
                 "styleguide_assets"
-            ]
+            ],
+            'include_stock_assets': True
         })
 
 if __name__ == '__main__':
