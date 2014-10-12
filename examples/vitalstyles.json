@@ -3,5 +3,8 @@
     "title": "My style guide",
     "inpaths": [
         "less"
+    ],
+    "asset_directories": [
+        "styleguide_assets"
     ]
 }

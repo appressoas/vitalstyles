@@ -1,9 +1,9 @@
 import argparse
 import logging
+from pprint import pformat
 
 from . import guide
 from . import settings
-from pprint import pformat
 
 
 log = logging.getLogger(__name__)

@@ -11,6 +11,9 @@ class CustomSettings(Settings):
             "title": "My style guide built using custom settings object",
             "inpaths": [
                 "less"
+            ],
+            "asset_directories": [
+                "styleguide_assets"
             ]
         })
 

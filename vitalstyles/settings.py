@@ -26,7 +26,14 @@ class Settings(object):
         'template_dir': None,
 
         # The title of the guide
-        'title': 'Vitalstyles style guide'
+        'title': 'Vitalstyles style guide',
+
+        # A list of filesystem directories. The contents of these directories
+        # are copied into the assets sub-directory of the ``outdir``.
+        # The directory itself is not copied, so if you specify two directories
+        # containing the same file, the file from the last directory in the
+        # list will overwrite the first.
+        'asset_directories': []
     }
 
     def __init__(self, filename=None):
@@ -67,6 +74,13 @@ class Settings(object):
 
     def get_outdir_path(self):
         return os.path.abspath(os.path.join(self.basedir, self.settings['outdir']))
+
+    def get_assets_outdir_path(self):
+        return os.path.join(self.get_outdir_path(), 'assets')
+
+    def iter_asset_directories(self):
+        for path in self.settings['asset_directories']:
+            yield os.path.abspath(os.path.join(self.basedir, path))
 
     def get_preview_cssfilepath_relative_to_outdir(self):
         path = os.path.abspath(os.path.join(self.basedir, self.settings['preview_cssfile']))

@@ -76,3 +76,23 @@ class Guide(object):
         css = resource_string(__name__, 'styles/styles.css')
         with open(outcss, 'wb') as f:
             f.write(css)
+
+        self.build_assets()
+
+    def _copy_asset_directory(self, source, dest):
+        for dirpath, dirs, files in os.walk(source):
+            dest_dirpath = os.path.join(dest, os.path.relpath(dirpath, source))
+            if not os.path.exists(dest_dirpath):
+                os.mkdir(dest_dirpath)
+            for filename in files:
+                shutil.copy2(
+                    os.path.join(dirpath, filename),
+                    os.path.join(dest_dirpath, filename))
+
+    def build_assets(self):
+        if os.path.exists(self.settingsobject.get_assets_outdir_path()):
+            shutil.rmtree(self.settingsobject.get_assets_outdir_path())
+        if self.settingsobject['asset_directories']:
+            os.mkdir(self.settingsobject.get_assets_outdir_path())
+            for asset_directory in self.settingsobject.iter_asset_directories():
+                self._copy_asset_directory(asset_directory, self.settingsobject.get_assets_outdir_path())
