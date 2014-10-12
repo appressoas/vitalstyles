@@ -92,7 +92,7 @@ class Guide(object):
     def build_assets(self):
         if os.path.exists(self.settingsobject.get_assets_outdir_path()):
             shutil.rmtree(self.settingsobject.get_assets_outdir_path())
-        if self.settingsobject['asset_directories']:
+        if self.settingsobject['asset_directories'] or self.settingsobject['include_stock_assets']:
             os.mkdir(self.settingsobject.get_assets_outdir_path())
             for asset_directory in self.settingsobject.iter_asset_directories():
                 self._copy_asset_directory(asset_directory, self.settingsobject.get_assets_outdir_path())
