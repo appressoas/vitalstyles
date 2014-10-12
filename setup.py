@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
     name = 'vitalstyles',
     description = 'Generate CSS/SASS/LESS documentation with previews using Markdown in comments.',
-    version = '1.1.2',
+    version = '1.1.3',
     license = 'BSD',
     author = 'Espen Angell Kristiansen',
     author_email = 'post@espenak.net',
