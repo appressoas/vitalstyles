@@ -6,5 +6,6 @@
     ],
     "asset_directories": [
         "styleguide_assets"
-    ]
+    ],
+    "include_stock_assets": true
 }

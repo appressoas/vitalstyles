@@ -65,13 +65,40 @@ You can configure vitalstyles through a ``vitalstyles.json`` file. This is the d
     "template_dir": null,
 
     // The title of the guide
-    "title": "Vitalstyles style guide"
+    "title": "Vitalstyles style guide",
+    
+    // Include stock assets? This will add a directory named
+    // stock to your assets/ directory, and fill it with assets
+    // that you can use in your styleguide.
+    'include_stock_assets': false,
+
+    // A list of filesystem directories. The contents of these directories
+    // are copied into the assets sub-directory of the ``outdir``.
+    // The directory itself is not copied, so if you specify two directories
+    // containing the same file, the file from the last directory in the
+    // list will overwrite the first.
+    'asset_directories': []
+
 }
 ```
 
 
 ## Embedded previews in the docs
 If you want to get previews, you have to configure ``preview_cssfile`` in a ``vitalstyles.json``.
+
+
+## Bundled stock images
+We bundle a set of stock images. The bundled stock images are from https://unsplash.com/ and http://www.gratisography.com/.
+
+To use the bundled stock images, you simply set the ``include_stock_assets`` setting to ``true``. This will copy the images from ``vitalstyles/sock_assets/stock/`` (in the sources of this library) into the ``assets/stock/`` subdirectory of the directory specified in the ``outdir`` setting.
+
+
+## Adding assets (images, videos, etc)
+If using the bundled stock images is not enough, you can include one or more asset directories using the ``asset_directories`` setting. You simply add the path to the directories you want to copy into the ``assets/`` subdirectory of the directory specified in the ``outdir`` setting.  
+
+
+## Specifying settings using Python or making a custom CLI
+If configuring the styleguide using JSON is not enough, you can make a custom CLI script. This is fairly simple, and it is demonstrated in ``examples/custom_vitalstyles_cli.py``.
 
 
 ## Complete example
