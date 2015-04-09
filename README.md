@@ -15,6 +15,10 @@ Make it easier to document and develop styles.
     - Rendered in a full width IFRAME for really complex examples. These examples can also be opened in a separate file.
 
 
+## Requirements
+Should work with any fairly new version of Python. Tested on Python 2.7 and Python 3.4.
+
+
 ## Install
 ```
 $ pip install vitalstyles
